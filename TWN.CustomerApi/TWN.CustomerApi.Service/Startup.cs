@@ -16,6 +16,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using TWN.CustomerApi.Infrastructure.ObjectDataContext;
+using TWN.CustomerApi.Service.Middleware;
 
 namespace TWN.CustomerApi.Service
 {
@@ -75,8 +76,24 @@ namespace TWN.CustomerApi.Service
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Customer API",
+                    Title = "Customer System API",
                     Description = "A simple example ASP.NET Core Web API"
+                });
+                c.AddSecurityDefinition("ApiKey", new OpenApiSecurityScheme()
+                {
+                    In = ParameterLocation.Header,
+                    Name = "ApiKey",
+                    Type = SecuritySchemeType.ApiKey,
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "ApiKey" }
+                        },
+                        new string[] { }
+                    }
                 });
 
                 // Set the comments path for the Swagger JSON and UI.
@@ -95,11 +112,6 @@ namespace TWN.CustomerApi.Service
         /// <param name="provider"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
-            /*if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }*/
-
             if (env.IsDevelopment())
             {
                 // Enable middleware to serve generated Swagger as a JSON endpoint.
@@ -114,6 +126,8 @@ namespace TWN.CustomerApi.Service
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<ApiKeyMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

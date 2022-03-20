@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TWN.CustomerApi.Entities\TWN.CustomerApi.Entities.csproj" />
     <ProjectReference Include="..\TWN.CustomerApi.Infrastructure\TWN.CustomerApi.Infrastructure.csproj" />
   </ItemGroup>
 
