@@ -17,22 +17,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{4022C81E-25AE-43A9-A573-33A37969AE81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWN.CustomerApi.Business", "TWN.CustomerApi.Business\TWN.CustomerApi.Business.csproj", "{CEC36F0A-6862-448D-9EDD-3E2D787ABEDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWN.CustomerApi.Business", "TWN.CustomerApi.Business\TWN.CustomerApi.Business.csproj", "{CEC36F0A-6862-448D-9EDD-3E2D787ABEDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWN.CustomerApi.Entities", "TWN.CustomerApi.Entities\TWN.CustomerApi.Entities.csproj", "{63AE4224-117A-46CF-A6A3-2CD30B82877C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWN.CustomerApi.Entities", "TWN.CustomerApi.Entities\TWN.CustomerApi.Entities.csproj", "{63AE4224-117A-46CF-A6A3-2CD30B82877C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWN.CustomerApi.Infrastructure", "TWN.CustomerApi.Infrastructure\TWN.CustomerApi.Infrastructure.csproj", "{45A8E60A-A39F-4606-AC9D-F86D74DD8AD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWN.CustomerApi.Infrastructure", "TWN.CustomerApi.Infrastructure\TWN.CustomerApi.Infrastructure.csproj", "{45A8E60A-A39F-4606-AC9D-F86D74DD8AD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWN.CustomerApi.Service", "TWN.CustomerApi.Service\TWN.CustomerApi.Service.csproj", "{70BED903-F12D-4587-95EE-51951B968C91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWN.CustomerApi.Service", "TWN.CustomerApi.Service\TWN.CustomerApi.Service.csproj", "{70BED903-F12D-4587-95EE-51951B968C91}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8F916B00-7B66-4D45-BD8B-94C05DBF0D1A}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
+		..\Readme.md = ..\Readme.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{38EEBDE9-8ACC-4397-BA7B-452903BCE7F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWN.CustomerApi.Service.Test", "TWN.CustomerApi.Service.Test\TWN.CustomerApi.Service.Test.csproj", "{76FEFE00-9A36-48EB-BC15-62100CE6BDB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWN.CustomerApi.Service.Test", "TWN.CustomerApi.Service.Test\TWN.CustomerApi.Service.Test.csproj", "{76FEFE00-9A36-48EB-BC15-62100CE6BDB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
