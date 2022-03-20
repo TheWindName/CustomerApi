@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -14,35 +15,45 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using TWN.CustomerApi.Infrastructure.ObjectDataContext;
 
 namespace TWN.CustomerApi.Service
 {
     /// <summary>
-    /// 
+    /// Class Startup
     /// </summary>
     public class Startup
     {
+        #region Constructors
         /// <summary>
-        /// 
+        /// Constructor class Startup
         /// </summary>
         /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
+        #endregion Constructors
 
         /// <summary>
-        /// 
+        /// Configuration Variable 
         /// </summary>
         public IConfiguration Configuration { get; }
 
         /// <summary>
-        /// 
+        /// Method Configure Services which configure each service defined in the application 
+        /// using DI pattern by native Net Core system.
         /// </summary>
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            // Confguring DBContext using services layer
+            services.AddDbContext<ContextDb>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DockerDataBase"));
+            });
 
             #region SwaggerService
 
@@ -77,7 +88,7 @@ namespace TWN.CustomerApi.Service
         }
 
         /// <summary>
-        /// 
+        /// Configure Method where We can modify the middleware pipeline
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
