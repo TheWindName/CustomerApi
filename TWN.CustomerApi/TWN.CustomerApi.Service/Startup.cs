@@ -50,7 +50,7 @@ namespace TWN.CustomerApi.Service
             services.AddControllers();
 
             // Confguring DBContext using services layer
-            services.AddDbContext<ContextDb>(options =>
+            services.AddDbContext<TestDb>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DockerDataBase"));
             });
