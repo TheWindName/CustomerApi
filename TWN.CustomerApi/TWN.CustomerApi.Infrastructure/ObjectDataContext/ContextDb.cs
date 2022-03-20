@@ -11,7 +11,7 @@ namespace TWN.CustomerApi.Infrastructure.ObjectDataContext
     /// <summary>
     /// 
     /// </summary>
-    public class ContextDb : DbContext
+    public class TestDb : DbContext
     {
         #region Properties
         public DbSet<Customer> Customer { get; set; }
@@ -20,7 +20,7 @@ namespace TWN.CustomerApi.Infrastructure.ObjectDataContext
         #endregion Properties
 
         #region Constructors
-        public ContextDb(DbContextOptions<ContextDb> options) : base(options)
+        public TestDb(DbContextOptions<TestDb> options) : base(options)
         {
 
         }
