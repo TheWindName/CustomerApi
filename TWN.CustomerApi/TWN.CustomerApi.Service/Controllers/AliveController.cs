@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TWN.CustomerApi.Service.Controllers
 {
     /// <summary>
-    /// 
+    /// Class Alive which provide us a way to verify the application healthy. 
     /// </summary>
     [ApiVersionNeutral]
     [ApiController]
