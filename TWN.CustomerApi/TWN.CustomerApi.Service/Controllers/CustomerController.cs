@@ -39,7 +39,7 @@ namespace TWN.CustomerApi.Service.Controllers
         /// Get Method which returns a concrete Customer Entities in DataBase.
         /// </summary>
         /// <returns>Action Result with CustomerEntity</returns>
-        [HttpGet("{id}")]
+        [HttpGet("{customerId}")]
         public CustomerEntity GetById(int CustomerId)
         {
             var result = new CustomerEntity();
@@ -60,6 +60,7 @@ namespace TWN.CustomerApi.Service.Controllers
             return result;
         }
 
+        /// <summary>
         /// Put Method which update an already created stored Customer into DataBase.
         /// </summary>
         /// <param name="customerId">CustomerId of the Entity we want to modify</param>

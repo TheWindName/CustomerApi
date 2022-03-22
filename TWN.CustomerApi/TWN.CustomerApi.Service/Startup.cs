@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,15 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 using TWN.CustomerApi.Infrastructure.ObjectDataContext;
+using TWN.CustomerApi.Infrastructure.Repository;
+using TWN.CustomerApi.Service.AutoMapper;
 using TWN.CustomerApi.Service.Middleware;
 
 namespace TWN.CustomerApi.Service
@@ -32,7 +30,7 @@ namespace TWN.CustomerApi.Service
         /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = configuration;            
         }
         #endregion Constructors
 
@@ -48,7 +46,17 @@ namespace TWN.CustomerApi.Service
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+
+            var config = new MapperConfiguration(cfg => {
+
+                cfg.AddProfile(new MappingProfile());
+            } );
+            IMapper mapper = config.CreateMapper();
+
+            services.AddSingleton(mapper);
             services.AddControllers();
+            services.AddTransient<ICountryRepository, CountryRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
 
             // Confguring DBContext using services layer
             services.AddDbContext<TestDb>(options =>
